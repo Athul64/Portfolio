@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=SUSE:wght@100..800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 5rem;
+            background-color: #11141A;
+        }
+
+/* Navbar Styles */
+.navbar {
+  font-family: "Aboreto", system-ui;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #11141A;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar.active {
+  box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+
+.logo_navabout {
+  font-family: "Aboreto", system-ui;
+  font-size: 24px;
+  color: #6A7387;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logo_nav:hover{
+  color: #A7AFC8;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin-left: auto; /* Move links to the right */
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  position: relative; /* Required for positioning the pseudo-element */
+  color: #7E929C;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px; /* Adjust this value to increase/decrease the space */
+  width: 0;
+  height: 2px; /* Height of the underline */
+  background-color: #ddd; /* Underline color */
+  transition: width 0.3s ease-in-out;
+}
+.nav-links a:hover{
+  color: #fff;
+}
+
+.nav-links a:hover::after {
+  width: 100%; /* Expand the underline to full width on hover */
+  color: #fff;
+}
+
+.talk-button {
+  padding: 10px 20px;
+  background-color: #687282;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 20px; /* Add space between links and button */
+}
+
+.talk-button:hover {
+  color: #fff;
+  background-color: #3c3e41;
+}
+
+
+html::-webkit-scrollbar {
+  width: .5rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: #E9EBEC;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #11141A;
+}
+
+h1 {
+  overflow: hidden; /* Hide scrollbar for h1 */
+  color: #fff;
+  font-family: "Aboreto", system-ui;
+  font-size: 7.5rem;
+  font-weight: 400;
+  font-style: normal;
+  margin-top: 250px;
+  text-align: center;
+  animation: fadeOutMoveDown 2s ease-in-out forwards;
+}
+
+section {
+  padding: 5rem 9%;
+  min-height: 40vh; /* Ensure section takes up full view height */
+}
+
+/* Hamburger Icon */
+.hamburger {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #ddd;
+  transition: 0.3s;
+}
+
+/* Transition for the lines */
+.hamburger span {
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 1px);
+}
+
+.hamburger.active span:nth-child(2) {
+  transform: rotate(-45deg) translate(5px, -1px);
+}
+        /* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 20px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .talk-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  h1{
+    font-size: 3rem;
+  }
+
+  .nav-links {
+    display: none; /* Hide nav links by default */
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    flex-direction: column;
+    background-color: #000;
+    width: 320px;
+    height: max-content;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .nav-links:hover {
+    color: #fff;
+ }
+
+
+  .nav-links.active {
+    display: flex; /* Show nav links when active */
+  }
+
+  .hamburger {
+    display: flex; /* Show hamburger icon on small screens */
+    
+  }
+
+  .talk-button {
+    display: none; /* Hide the "Let's Talk" button on smaller screens */
+  }
+}
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="/index.html" class="logo_navabout">Athul Krishna</a>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="works.html">Works</a></li>
+          <li><a href="insight.html">Insight</a></li>
+          <li><a href="contacts.html">Contacts</a></li>
+        </ul>
+        <button class="talk-button" onclick="navigateToLetstalk()">Let's Talk</button>
+      </nav>
+  <h1>ABOUT PAGE</h1>
+  <script>
+    // Hamburger menu toggle
+document.querySelector('.hamburger').addEventListener('click', () => {
+  document.querySelector('.nav-links').classList.toggle('active');
+  document.querySelector('.talk-button').classList.toggle('active');
+  document.querySelector('.hamburger').classList.toggle('active'); // Toggle active class
+});
+
+function navigateToLetstalk() {
+  window.location.href = 'letstalk.html';
+}  
+
+  </script>
+</body>
+</html>
