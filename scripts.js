@@ -61,7 +61,4 @@ function toggleMenu() {
 // Attach toggle function to hamburger menu click
 document.querySelector('.hamburger').addEventListener('click', toggleMenu);
 
-// Navigation function for 'Let's Talk' button
-function navigateToLetstalk() {
-  window.location.href = 'pages/letstalk.html'; // Adjust with your Let's Talk page URL
-}
+

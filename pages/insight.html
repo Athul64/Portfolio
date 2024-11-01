@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>INSIGHT</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
@@ -91,22 +91,26 @@
   color: #fff;
 }
 
-.talk-button {
-  padding: 10px 20px;
-  background-color: #687282;
-  color: white;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-left: 20px; /* Add space between links and button */
-}
+.nav-links a.talk-button {
+            padding: 10px 20px;
+            background-color: #687282;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 20px;
+            text-decoration: none;
+        }
 
-.talk-button:hover {
-  color: #fff;
-  background-color: #3c3e41;
-}
+        .nav-links a.talk-button::after {
+            content: none; /* Remove the underline effect from the button */
+        }
 
+        .nav-links a.talk-button:hover {
+            color: #fff;
+            background-color: #3c3e41;
+        }
 
 html::-webkit-scrollbar {
   width: .5rem;
@@ -150,8 +154,16 @@ section {
 .hamburger span {
   width: 25px;
   height: 3px;
-  background: #ddd;
   transition: 0.3s;
+}
+
+.hamburger span:nth-child(1){
+  background: #ddd;
+}
+
+.hamburger span:nth-child(2){
+  background: #A7AFC8;
+  width: 15PX;
 }
 
 /* Transition for the lines */
@@ -174,11 +186,6 @@ section {
 
   .nav-links {
     display: none;
-  }
-
-  .talk-button {
-    padding: 8px 16px;
-    font-size: 14px;
   }
 
   h1{
@@ -213,8 +220,14 @@ section {
     
   }
 
-  .talk-button {
-    display: none; /* Hide the "Let's Talk" button on smaller screens */
+  .nav-links a.talk-button {
+    display: flex; /* Hide the "Let's Talk" button on smaller screens */
+    width: 110px;
+    height: auto;
+    padding: 8px 16px;
+    font-size: 15px;
+    text-align: center;
+    right: 20px; 
   }
 }
     </style>
@@ -232,9 +245,9 @@ section {
             <li><a href="works.html">Works</a></li>
             <li><a href="insight.html">Insight</a></li>
             <li><a href="contacts.html">Contacts</a></li>
-          </ul>
-          <button class="talk-button" onclick="navigateToLetstalk()">Let's Talk</button>
-        </nav>
+            <li><a href="letstalk.html" class="talk-button">Let's Talk</a></li>
+        </ul>
+    </nav>
   <h1>INSIGHT PAGE</h1>
   <script>
     // Hamburger menu toggle

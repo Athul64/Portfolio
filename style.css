@@ -38,13 +38,13 @@ body.h1-active {
 
 .logo_nav {
   font-size: 24px;
-  color: #6A7387;
+  color: #A7AFC8;
   text-decoration: none;
   cursor: pointer;
 }
 
 .logo_nav:hover{
-  color: #A7AFC8;
+  color: #6A7387;
 }
 
 .nav-links {
@@ -85,18 +85,23 @@ body.h1-active {
   color: #fff;
 }
 
-.talk-button {
+.nav-links a.talk-button {
   padding: 10px 20px;
   background-color: #687282;
   color: white;
   border: none;
-  border-radius: 15px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
-  margin-left: 20px; /* Add space between links and button */
+  margin-left: 20px;
+  text-decoration: none;
 }
 
-.talk-button:hover {
+.nav-links a.talk-button::after {
+  content: none; /* Remove the underline effect from the button */
+}
+
+.nav-links a.talk-button:hover {
   color: #fff;
   background-color: #3c3e41;
 }
@@ -226,8 +231,16 @@ h2{
 .hamburger span {
   width: 25px;
   height: 3px;
-  background: #ddd;
   transition: 0.3s;
+}
+
+.hamburger span:nth-child(1){
+  background: #ddd;
+}
+
+.hamburger span:nth-child(2){
+  background: #A7AFC8;
+  width: 15PX;
 }
 
 /* Transition for the lines */
@@ -235,13 +248,6 @@ h2{
   transition: all 0.3s ease;
 }
 
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 1px);
-}
-
-.hamburger.active span:nth-child(2) {
-  transform: rotate(-45deg) translate(5px, -1px);
-}
 
 
 /* Media Queries for Responsive Design */
@@ -254,19 +260,21 @@ h2{
     display: none;
   }
 
-  .talk-button {
+  .nav-links a.talk-button {
+    display: flex; /* Hide the "Let's Talk" button on smaller screens */
+    width: 110px;
+    height: auto;
     padding: 8px 16px;
-    font-size: 14px;
+    font-size: 15px;
+    text-align: center;
+    right: 20px; 
   }
-
-  h1{
-    font-size: 3rem;
-  }
+  
 
   .h_dis {
-    font-size: 2rem;
+    font-size: 32px;
     /* text-align: center; */
-    margin-top: -220px;
+    margin-top: -300px;
     /* word-break: break-all; */
     word-spacing: normal;
     text-align: justify;
