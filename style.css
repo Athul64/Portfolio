@@ -199,9 +199,8 @@ h2{
 }
 
 .project-item {
-  background-color: #222;
+  position: relative; /* Required for absolute positioning of the overlay */
   padding: 15px;
-  border-radius: 20px;
   overflow: hidden;
   transition: transform 0.3s ease;
 }
@@ -217,6 +216,29 @@ h2{
   object-fit: cover;
   height: 200px;
 }
+
+.overlay {
+  position: absolute;
+  top: 70%; /* Position it in the middle vertically */
+  left: 10%; /* Adjust left padding */
+  right: 10%; /* Adjust right padding */
+  bottom: 10%; /* Adjust bottom padding */
+  background-color: rgba(17, 20, 26, 0.9); /* Use rgba for semi-transparent */
+  color: #fff; /* Text color */
+  display: flex;
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Smooth transition for visibility */
+  border-radius: 8px; /* Rounded corners */
+}
+
+/* Show overlay on hover */
+.project-item:hover .overlay {
+  opacity: 1; /* Show overlay on hover */
+}
+
+
 
 /* Hamburger Icon */
 .hamburger {
@@ -259,6 +281,15 @@ h2{
   .nav-links {
     display: none;
   }
+ 
+  .nav-links a:hover{
+    color: #fff;
+  }
+  
+  .nav-links a:hover::after {
+    width: 100%; /* Expand the underline to full width on hover */
+    color: #fff;
+  }
 
   .nav-links a.talk-button {
     display: flex; /* Hide the "Let's Talk" button on smaller screens */
@@ -288,6 +319,14 @@ h2{
     grid-template-columns: 1fr;
   }
 
+  .project-item {
+    cursor: pointer; /* Change cursor on touch devices */
+}
+
+/* Simulate hover effect on touch devices */
+.project-item:hover .overlay {
+    opacity: 1; /* Show overlay when item is tapped */
+}
   .nav-links {
     display: none; /* Hide nav links by default */
     position: absolute;
@@ -317,6 +356,7 @@ h2{
   }
 
   .talk-button {
-    display: none; /* Hide the "Let's Talk" button on smaller screens */
+    display: flex; /* Hide the "Let's Talk" button on smaller screens */
   }
+
 }
