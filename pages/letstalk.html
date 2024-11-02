@@ -158,17 +158,31 @@ section {
 }
 
 .hamburger span:nth-child(1){
-  background: #ddd;
+  background: #A7AFC8;
+  width: 30PX;
 }
 
 .hamburger span:nth-child(2){
   background: #A7AFC8;
-  width: 15PX;
+  width: 20PX;
 }
+
+.hamburger.active span:nth-child(1){
+  width: 20px;
+}
+
 
 /* Transition for the lines */
 .hamburger span {
   transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 1px);
+}
+
+.hamburger.active span:nth-child(2) {
+  transform: rotate(-45deg) translate(5px, -1px);
 }
 
 
@@ -181,6 +195,10 @@ section {
   .nav-links {
     display: none;
   }
+  
+  .nav-links a{
+    color: #fff;
+  }
 
   h1{
     font-size: 3rem;
@@ -192,7 +210,7 @@ section {
     top: 60px;
     right: 20px;
     flex-direction: column;
-    background-color: #000;
+    background-color:  #161923;
     width: 320px;
     height: max-content;
     padding: 20px;
@@ -200,9 +218,7 @@ section {
     cursor: pointer;
   }
 
-  .nav-links:hover {
-    color: #fff;
- }
+ 
 
 
   .nav-links.active {
